@@ -1,0 +1,24 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+	<arg name="robot"/>
+  	<arg name="scenario"/>
+	<arg name="xtion_nav"/>
+
+	 <!--turn on the laser and launch them-->
+   	<include file="$(find teresa_common)/launch/exp4/$(arg robot)/lasers.launch" />
+
+	 <!--launch the xtion cameras-->
+	<include if="$(arg xtion_nav)" file="$(find teresa_common)/launch/exp4/$(arg robot)/xtionNav.launch" />
+  	<include file="$(find teresa_common)/launch/exp4/$(arg robot)/xtionPeople.launch" />
+
+	 <!--laser generated from the navigation xtion-->
+	 <include file="$(find teresa_common)/launch/exp4/$(arg robot)/depthcamscan.launch"/>
+
+	<!--transform people receive to UPO messages format-->
+	<node pkg="spencer_to_upo_people" type="spencer_to_upo_people" name="spencer_to_upo_people" output="screen" >
+		<param name="publish_markers" type="bool" value="false" />
+	</node>
+
+
+</launch>

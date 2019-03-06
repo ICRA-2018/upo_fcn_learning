@@ -1,0 +1,43 @@
+<!-- -->
+<launch>
+
+
+<node pkg="rosbag" type="record" name="record_1" args=
+	"/tf 
+	/imu/data 
+	/odom 
+	/cmd_vel 
+	/scan360
+	/depthcamscan_node/scanXtion
+	/xtionNav/rgb/camera_info
+	/xtionNav/rgb/image_raw
+        /xtionNav/rgb/image_raw/compressed
+        /xtionNav/rgb/image_raw/compressed/parameter_descriptions
+        /xtionNav/rgb/image_raw/compressed/parameter_updates
+	/xtionPeople/rgb/camera_info
+	/xtionPeople/rgb/image_raw	
+	/xtionPeople/rgb/image_raw/compressed
+	/xtionPeople/rgb/image_raw/compressed/parameter_descriptions
+	/xtionPeople/rgb/image_raw/compressed/parameter_updates
+	/tracker_node/people_markers
+	/people_tracker_node/tracked_persons
+	/people_tracker_node/tracked_persons/with_visual_confirmation 
+	/people/wsbs
+	/people/navigation
+	/wsbs/controller/info
+	/wsbs/markers/belief
+	/wsbs/markers/goals
+	/wsbs/markers/local_goal
+	/wsbs/markers/predicted_trajectory
+	/wsbs/markers/robot
+	/wsbs/markers/robot_forces
+	/wsbs/markers/scan
+	/wsbs/markers/target
+	/wsbs/markers/target_path
+	/wsbs/markers/trajectories
+	/wsbs/planner/target
+	/wsbs/status
+	/clicked_point
+	-o /home/teresa/data/wsbs.bag" />
+  
+</launch>

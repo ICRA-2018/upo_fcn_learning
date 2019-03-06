@@ -1,0 +1,18 @@
+name: upo-fcn-learning
+
+base:
+  ubuntu: 16.04
+  ros: kinetic-ros-base
+  cuda: 8.0-runtime
+  cudnn: 6-runtime
+
+build: catkin_make
+
+apt:
+  - python-setuptools
+  - python-dev
+
+pip:
+  - theano==0.9.0
+  - keras
+
